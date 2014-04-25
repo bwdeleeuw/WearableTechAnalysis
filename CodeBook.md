@@ -73,3 +73,12 @@ The other columns show a mean of the following data from the original data set
 * fBodyBodyGyroMag-std()
 * fBodyBodyGyroJerkMag-mean()
 * fBodyBodyGyroJerkMag-std()
+
+# Cleanup and Transformation
+* The script run through the training and test data and combines them together.
+* It add extra columns for the subject and the activity
+* A merge is done to display the activity description instead of just the code
+* All columns get the correct name from the features file
+* Only the columns that have the means() or std() description are maintained in the data set
+* The system groups by subject and activity, and calculates the average of the other columns
+* This result is exported to a text file

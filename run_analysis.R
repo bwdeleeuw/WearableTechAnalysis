@@ -10,6 +10,7 @@ activity_labels <- read.csv("activity_labels.txt",sep=" ",header=FALSE,col.names
 trainSubject <- read.csv("train\\subject_train.txt",header=FALSE,col.names="subject_id")
 trainActivity <- merge(read.csv("train\\y_train.txt",header=FALSE,col.names="activity_id"),activity_labels)
 trainInfo <- cbind(trainSubject,trainActivity)
+# this function run nicely on an 8Gb machine, if less memory available, use a smaller buffersize
 trainSet <- read.fwf("train\\X_train.txt",widths=rep(16,561),buffersize=1000)
 # add features to data set columnn names
 names(trainSet) <- features$caption
@@ -20,6 +21,7 @@ smallTrainSet <- trainSet[,grep("-mean\\(\\)|-std\\(\\)",names(trainSet))]
 testSubject <- read.csv("test\\subject_test.txt",header=FALSE,col.names="subject_id")
 testActivity <- merge(read.csv("test\\y_test.txt",header=FALSE,col.names="activity_id"),activity_labels)
 testInfo <- cbind(testSubject,testActivity)
+# this function run nicely on an 8Gb machine, if less memory available, use a smaller buffersize
 testSet <- read.fwf("test\\X_test.txt",widths=rep(16,561),buffersize=1000)
 # add features to data set columnn names
 names(testSet) <- features$caption
